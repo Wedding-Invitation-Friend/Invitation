@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>結婚式のご招待</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ご招待</h1>
+    <p>ご出欠の回答をお願いいたします。</p>
+
+    <form id="rsvp-form" novalidate>
+      <label class="field">
+        お名前（必須）
+        <input type="text" name="name" required placeholder="山田 太郎" />
+      </label>
+
+      <fieldset class="field">
+        <legend>挙式・披露宴への出欠（必須）</legend>
+        <label class="inline">
+          <input type="radio" name="attend_for_wedding" value="true" required />
+          出席
+        </label>
+        <label class="inline">
+          <input type="radio" name="attend_for_wedding" value="false" />
+          欠席
+        </label>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>二次会への出欠（必須）</legend>
+        <label class="inline">
+          <input type="radio" name="attend_for_second_party" value="true" required />
+          出席
+        </label>
+        <label class="inline">
+          <input type="radio" name="attend_for_second_party" value="false" />
+          欠席
+        </label>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>参加型の余興に参加（必須）</legend>
+        <label class="inline">
+          <input type="radio" name="entertainment" value="true" required />
+          参加する
+        </label>
+        <label class="inline">
+          <input type="radio" name="entertainment" value="false" />
+          参加しない
+        </label>
+      </fieldset>
+
+      <button type="submit">送信</button>
+      <p id="message" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
