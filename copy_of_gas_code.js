@@ -1,5 +1,5 @@
 // === 設定 ===
-const SHEET_ID = '＜あなたのスプレッドシートID＞';
+const SHEET_ID = '1xJvvz8_L4nkkF8F5wmKizPZ5wdi9O7nm0yVszmDofGw';
 const SHEET_NAME = 'RSVP';
 
 // === エントリポイント ===
