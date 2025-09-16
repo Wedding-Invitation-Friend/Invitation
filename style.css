@@ -180,6 +180,7 @@ body {
   z-index: 2;
   animation: fadeInUp 2s ease-out;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 @keyframes fadeInUp {
@@ -280,7 +281,7 @@ body {
 }
 
 .event-details {
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
 }
 
 .event-details h3 {
