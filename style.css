@@ -13,11 +13,13 @@ body {
 
 .hero-section {
   position: relative;
-  height: 100vh;
+  height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 80px 20px;
   background:
     radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
     radial-gradient(ellipse at top right, rgba(255, 223, 186, 0.2) 0%, transparent 50%),
@@ -274,7 +276,7 @@ body {
 }
 
 .event-details {
-  margin: 60px 0;
+  margin-bottom: 60px;
 }
 
 .event-details h3 {
