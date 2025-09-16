@@ -18,17 +18,152 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: url('images/top_image.jpg') center/cover;
+  background:
+    radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, rgba(255, 223, 186, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(255, 218, 185, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #faf7f2 0%, #fff9f4 25%, #fffefa 50%, #f9f6f1 75%, #fdfbf7 100%);
 }
 
-.hero-overlay {
+.hero-section::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.03) 35px, rgba(212, 175, 55, 0.03) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 70px);
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-decoration {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  z-index: 1;
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+  content: "";
+  position: absolute;
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.hero-decoration.top-left {
+  top: 30px;
+  left: 30px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hero-decoration.top-left::before {
+  top: -2px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+}
+
+.hero-decoration.top-left::after {
+  left: -2px;
+  top: 50%;
+  width: 2px;
+  height: 100%;
+}
+
+.hero-decoration.top-right {
+  top: 30px;
+  right: 30px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.hero-decoration.top-right::before {
+  top: -2px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+}
+
+.hero-decoration.top-right::after {
+  right: -2px;
+  top: 50%;
+  width: 2px;
+  height: 100%;
+}
+
+.hero-decoration.bottom-left {
+  bottom: 30px;
+  left: 30px;
+  border-right: none;
+  border-top: none;
+}
+
+.hero-decoration.bottom-left::before {
+  bottom: -2px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+}
+
+.hero-decoration.bottom-left::after {
+  left: -2px;
+  bottom: 50%;
+  width: 2px;
+  height: 100%;
+}
+
+.hero-decoration.bottom-right {
+  bottom: 30px;
+  right: 30px;
+  border-left: none;
+  border-top: none;
+}
+
+.hero-decoration.bottom-right::before {
+  bottom: -2px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+}
+
+.hero-decoration.bottom-right::after {
+  right: -2px;
+  bottom: 50%;
+  width: 2px;
+  height: 100%;
 }
 
 .wedding-title {
@@ -346,29 +481,163 @@ legend {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .hero-decoration {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-decoration.top-left,
+  .hero-decoration.top-right {
+    top: 20px;
+  }
+
+  .hero-decoration.bottom-left,
+  .hero-decoration.bottom-right {
+    bottom: 20px;
+  }
+
+  .hero-decoration.top-left,
+  .hero-decoration.bottom-left {
+    left: 20px;
+  }
+
+  .hero-decoration.top-right,
+  .hero-decoration.bottom-right {
+    right: 20px;
+  }
+
   .wedding-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .container {
+    padding: 40px 15px;
+  }
+
+  .invitation-header {
+    padding: 30px 15px;
+    margin-bottom: 40px;
   }
 
   .couple-names {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 8vw, 2.5rem);
   }
 
   .wedding-date {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  .message-section {
+    padding: 30px 20px;
+    margin: 40px 0;
+  }
+
+  .message-section h3 {
+    font-size: 2rem;
+  }
+
+  .message-text {
+    font-size: 1rem;
+  }
+
+  .event-details h3,
+  .map-section h3,
+  .rsvp-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .detail-card {
+    padding: 25px 20px;
   }
 
   .detail-item {
     flex-direction: column;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
   }
 
   .detail-label {
     margin-bottom: 8px;
+    min-width: auto;
+  }
+
+  #map iframe {
+    height: 300px;
+  }
+
+  .rsvp-section {
+    padding: 30px 20px;
+  }
+
+  .field {
+    margin-bottom: 25px;
   }
 
   .radio-group {
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+  }
+
+  .submit-btn {
+    padding: 14px 20px;
+  }
+
+  fieldset {
+    padding: 15px;
+  }
+
+  input[type="text"] {
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  .invitation-header::before,
+  .invitation-header::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  .invitation-header::before {
+    top: -20px;
+  }
+
+  .invitation-header::after {
+    bottom: -20px;
+  }
+
+  .wedding-title {
+    font-size: 2.2rem;
+  }
+
+  .couple-names {
+    font-size: 1.8rem;
+  }
+
+  .wedding-date {
+    font-size: 1.1rem;
+  }
+
+  .message-section h3 {
+    font-size: 1.8rem;
+  }
+
+  .message-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
   }
 }
 
