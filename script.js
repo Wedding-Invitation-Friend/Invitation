@@ -2,13 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const invitationHeader = document.querySelector('.invitation-header');
   const messageSection = document.querySelector('.message-section');
 
+  // h1のCSSアニメーションが2sで完了するのを待つ
   setTimeout(() => {
     invitationHeader.classList.add('visible');
-  }, 1500); // h1のアニメーションが2sなので、少し早めに開始
+  }, 2000);
 
+  // headerのアニメーションが開始してから0.5s後にmessageを開始
   setTimeout(() => {
     messageSection.classList.add('visible');
-  }, 2000); // h1のアニメーションが終わる頃に開始
+  }, 2500);
 });
 
 // ここにGASの Webアプリ URL（/exec）を設定
