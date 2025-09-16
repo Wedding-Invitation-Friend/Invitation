@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const invitationHeader = document.querySelector('.invitation-header');
+  const messageSection = document.querySelector('.message-section');
+
+  setTimeout(() => {
+    invitationHeader.classList.add('visible');
+  }, 1500); // h1のアニメーションが2sなので、少し早めに開始
+
+  setTimeout(() => {
+    messageSection.classList.add('visible');
+  }, 2000); // h1のアニメーションが終わる頃に開始
+});
+
 // ここにGASの Webアプリ URL（/exec）を設定
 const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbySBt50LJ8zvQmxFWRlhhuq3tT3fIMKm-Hiflk0AgKwmgkVWkWb01zN7r1ZmFc-9jxAMw/exec";
 
