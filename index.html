@@ -2,60 +2,142 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>結婚式のご招待</title>
+  <title>Wedding Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="hero-section">
+    <div class="hero-overlay"></div>
+    <h1 class="wedding-title">Wedding Ceremony</h1>
+  </div>
+
   <div class="container">
-    <h1>ご招待</h1>
-    <p>ご出欠の回答をお願いいたします。</p>
+    <section class="invitation-header">
+      <h2 class="couple-names">Katsumasa & Partner</h2>
+      <p class="wedding-date">2025.11.24</p>
+    </section>
 
-    <form id="rsvp-form" novalidate>
-      <label class="field">
-        お名前（必須）
-        <input type="text" name="name" required placeholder="山田 太郎" />
-      </label>
+    <section class="message-section">
+      <h3>Message</h3>
+      <p class="message-text">
+        大切な皆様へ<br>
+        私たちの新しい門出に立ち会っていただけることを<br>
+        心より楽しみにしております
+      </p>
+    </section>
 
-      <fieldset class="field">
-        <legend>挙式・披露宴への出欠（必須）</legend>
-        <label class="inline">
-          <input type="radio" name="attend_for_wedding" value="true" required />
-          出席
-        </label>
-        <label class="inline">
-          <input type="radio" name="attend_for_wedding" value="false" />
-          欠席
-        </label>
-      </fieldset>
+    <section class="event-details">
+      <h3>挙式・披露宴</h3>
+      <div class="detail-card">
+        <div class="detail-item">
+          <span class="detail-label">日時</span>
+          <span class="detail-content">
+            2025年11月24日（月・祝）<br>
+            11:00開始<br>
+            <span class="reception-time">（10:15より受付開始）</span>
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">会場</span>
+          <span class="detail-content">
+            ラグナヴェール OSAKA<br>
+            ザ・プレミアムレジデンス
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">住所</span>
+          <span class="detail-content">
+            〒530-0004<br>
+            大阪市北区堂島浜1-3-23
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">アクセス</span>
+          <span class="detail-content">
+            大阪駅より徒歩9分<br>
+            JR北新地駅より徒歩3分
+          </span>
+        </div>
+      </div>
+    </section>
 
-      <fieldset class="field">
-        <legend>二次会への出欠（必須）</legend>
-        <label class="inline">
-          <input type="radio" name="attend_for_second_party" value="true" required />
-          出席
-        </label>
-        <label class="inline">
-          <input type="radio" name="attend_for_second_party" value="false" />
-          欠席
-        </label>
-      </fieldset>
+    <section class="map-section">
+      <h3>会場地図</h3>
+      <div id="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820.0906779970417!2d135.4944952!3d34.693980!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e6f4e8a4c4c5%3A0x3a4a4a4a4a4a4a4a!2z5aSn6Ziq5bqc5aSn6Ziq5biC5YyX5Yy65aCC5bO25rWcMS0zLTIz!5e0!3m2!1sja!2sjp!4v1699999999999!5m2!1sja!2sjp"
+          width="100%"
+          height="400"
+          style="border:0; border-radius: 10px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
 
-      <fieldset class="field">
-        <legend>参加型の余興に参加（必須）</legend>
-        <label class="inline">
-          <input type="radio" name="entertainment" value="true" required />
-          参加する
-        </label>
-        <label class="inline">
-          <input type="radio" name="entertainment" value="false" />
-          参加しない
-        </label>
-      </fieldset>
+    <section class="rsvp-section">
+      <h3>ご出欠のご連絡</h3>
+      <p class="rsvp-intro">お手数ですが、下記フォームよりご回答をお願いいたします</p>
 
-      <button type="submit">送信</button>
-      <p id="message" role="status" aria-live="polite"></p>
-    </form>
+      <form id="rsvp-form" novalidate>
+        <div class="field">
+          <label>
+            <span class="field-label">お名前（必須）</span>
+            <input type="text" name="name" required placeholder="山田 太郎" />
+          </label>
+        </div>
+
+        <fieldset class="field">
+          <legend>挙式・披露宴への出欠（必須）</legend>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="attend_for_wedding" value="true" required />
+              <span>出席</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="attend_for_wedding" value="false" />
+              <span>欠席</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>二次会への出欠（必須）</legend>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="attend_for_second_party" value="true" required />
+              <span>出席</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="attend_for_second_party" value="false" />
+              <span>欠席</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>参加型の余興に参加（必須）</legend>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="entertainment" value="true" required />
+              <span>参加する</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="entertainment" value="false" />
+              <span>参加しない</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">送信</button>
+        <p id="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </div>
 
   <script src="script.js"></script>
