@@ -28,6 +28,10 @@ body {
     linear-gradient(135deg, #faf7f2 0%, #fff9f4 25%, #fffefa 50%, #f9f6f1 75%, #fdfbf7 100%);
 }
 
+.hero-section > * {
+  width: 100%;
+}
+
 .hero-section::before {
   content: "";
   position: absolute;
